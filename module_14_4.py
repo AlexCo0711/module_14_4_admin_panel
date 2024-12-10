@@ -169,7 +169,7 @@ async def get_buying_list(message):
 @dp.callback_query_handler(text=['product_buying'])
 async def send_confirm_message(call):
     # обращение к картинке
-    with open("5.jpg", 'rb') as img0:
+    with open("0.jpg", 'rb') as img0:
         # ожидание выбора
         await call.message.answer_photo(img0, 'Вы успешно приобрели продукт!')
     # закрытие ожидания
