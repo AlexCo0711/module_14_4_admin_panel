@@ -58,7 +58,7 @@ kb_info = InlineKeyboardMarkup(
 #     ]
 # )
 
-# клавиатура по количеству id в БД
+# клавиатура выбора продукта по количеству id в БД
 buttons_list=[]
 # цикл по количеству продуктов в БД
 for item in get_all_products():
