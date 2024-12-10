@@ -136,11 +136,13 @@ async def set_weight(message: types.Message, state: FSMContext):
     await state.update_data(weight_=message.text)
     # сохранение полученных данных в переменной data
     data = await state.get_data()
-    # подсчет согласно формуле Миффлина-Сан Жеора для мужчин
-    calories = int(data['weight_']) * 10 + int(data['growth_']) * 6.25 - int(data['age_']) * 5 + 5
+    # подсчет согласно формуле Миффлина-Сан Жеора
+    calories_m = int(data['weight_']) * 10 + int(data['growth_']) * 6.25 - int(data['age_']) * 5 + 5
+    calories_w = int(data['weight_']) * 10 + int(data['growth_']) * 6.25 - int(data['age_']) * 5 - 161
     # ожидание вывода текста результатов расчета
-    await message.answer(f'Расчет проводится для пользователя мужского пола.\n'
-                         f'Ваша норма калорий {calories} день', reply_markup=kb_main)
+    await message.answer(f'Ваша норма калорий в день для:\n'
+                         f'мужчин - {calories_m}\n'
+                         f'женщин -  {calories_w}', reply_markup=kb_main)
     await state.finish()
 
 
