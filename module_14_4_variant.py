@@ -60,11 +60,13 @@ kb_info = InlineKeyboardMarkup(
 
 # клавиатура по количеству id в БД
 buttons_list=[]
+# цикл по количеству продуктов в БД
 for item in get_all_products():
+    # добавление в список кнопок с наименованием продукта из БД
     buttons_list.append(
-        [InlineKeyboardButton(text=f'{item[1]}', callback_data='product_buying')
-    ]
+        [InlineKeyboardButton(text=f'{item[1]}', callback_data='product_buying')]
     )
+# вывод кнопок клавиатуры выбора продукта
 kb_product = InlineKeyboardMarkup(inline_keyboard=buttons_list)
 
 # объявление класса состояния UserState наследованный от StatesGroup
